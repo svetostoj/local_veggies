@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @cart.order_id %>
+</p>
+
+<p>
+  <strong>Buyer:</strong>
+  <%= @cart.buyer_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @cart.product_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @cart.product %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @cart.seller_id %>
+</p>
+
+<p>
+  <strong>Unit weight:</strong>
+  <%= @cart.unit_weight %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @cart.unit %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @cart.unit_price %>
+</p>
+
+<p>
+  <strong>Qty:</strong>
+  <%= @cart.qty %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @cart.amount %>
+</p>
+
+<p>
+  <strong>Total weight:</strong>
+  <%= @cart.total_weight %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @cart.notes %>
+</p>
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>

@@ -1,0 +1,77 @@
+<%= form_with(model: cart, local: true) do |form| %>
+  <% if cart.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cart.errors.count, "error") %> prohibited this cart from being saved:</h2>
+
+      <ul>
+      <% cart.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :order_id %>
+    <%= form.number_field :order_id, id: :cart_order_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :buyer_id %>
+    <%= form.number_field :buyer_id, id: :cart_buyer_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.number_field :product_id, id: :cart_product_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product %>
+    <%= form.text_field :product, id: :cart_product %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seller_id %>
+    <%= form.number_field :seller_id, id: :cart_seller_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_weight %>
+    <%= form.text_field :unit_weight, id: :cart_unit_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit %>
+    <%= form.text_field :unit, id: :cart_unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_price %>
+    <%= form.text_field :unit_price, id: :cart_unit_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :qty %>
+    <%= form.text_field :qty, id: :cart_qty %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, id: :cart_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_weight %>
+    <%= form.text_field :total_weight, id: :cart_total_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, id: :cart_notes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

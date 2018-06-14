@@ -1,0 +1,20 @@
+I have the following links from my work on the rails project
+Figma 
+https://www.figma.com/file/Q9UT6MfvRtsDaGQDRcECSowu/LocalVeggies
+Trello
+https://trello.com/b/WVOpDE4j/localvegies
+Heroku
+https://thawing-ravine-69982.herokuapp.com/
+seller@hotmail.com / 123456
+buyer@hotmail.com / 123456
+
+On the submission day I deleted my old version on GitHub with the readme file in and didn’t make it to put  new version on GitHub, so I do not have the project on GitHub. Instead of readme file I make few points bellow related to the project
+
+I started my rails project with idea of having loose system to allow for sale / exchange / donation of vegetables in a local area. Later on that changed to an ordering system quite standard in it’s design. I had the database diagram taken from a project I had chance to look into years ago. This solution had a temporary table to store cart items and once the user decides to buy the application in the background creates new order, retrieves the order number for that new order then it puts the items from the cart into order line table against the new order number. Next thing the application calculates the total for the order and  processes the payment of that amount. All this is put into a transaction and if any chain fails the transaction is rolled back.
+I was aware that this design might not be completely suitable for a rails application as rails has quite specific approach but I wanted to test one thing. Namely I wanted to see if rails can update data in more tables in a single transaction (one trip to the server). With the experience I had there was clear distinction between program witch was using updates on a single table at the time and program able to handle transaction. The last one was considered a thing which required more professional approach.
+I managed to make the rails project work in few steps but could not link all together and make it work in one trip to the server so I ask my teacher for help and we had small argument. He described my idea as application which will have to create a cart for every item user want to buy and suggested a design without temporary cart table. I on another side had my arguments against his idea .. namely I though his idea would look like … user put item in a cart then goes to the checkout to scan it and then goes for another item etc.
+Without trying to find out who is right or wrong … I managed to make the application work in a single transaction the last day.
+However being to much focused on finding a solution I missed on documenting the whole thing and I just put the project on Heroku last minute. I had on GitHub a version with readme file describing some of the point I made here but then in a rush to submit the project in time I deleted this version with the readme file in it and did not have time to put the submitted version on GitHub.
+If you want me to put the attachment I have submitted on GitHub let me know.
+I thought we shouldn’t  put anything after the submission deadline.
+Also noticed some of the images on Heroku do not show although they did show at the time of the presentation

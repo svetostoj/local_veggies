@@ -1,0 +1,47 @@
+ def charge
+
+    # carts = Carts.where(user: current_user)
+    # carts = @order.carts
+    # order_items= OrderItems.all
+
+    order = Order.new
+
+    carts = current_user.carts
+
+    
+
+    order_items = OrderItems.where(order_id: @new_order_id)
+
+    total = order_items.sum(:amount)
+
+    if current_user.stripe_id.blank?
+      customer = Stripe::Customer.create(
+        :email => params[:stripeEmail],
+        :source  => params[:stripeToken]
+      )
+      current_user.stripe_id = customer.id
+      current_user.save!
+    end
+
+
+      charge = Stripe::Charge.create(
+        customer: customer.id,
+        amount: total,
+        description: 'Order no X',
+        currency: 'AUD'
+      )
+
+      # current_user.charges << Charge.new(charge_id: charge.id)
+      flash[:notice] = 'Payment made!'
+       redirect_back fallback_location: order_path      
+
+
+      rescue Stripe::CardError => e
+        flash[:error] = e.message
+       redirect_back fallback_location: order_path
+
+      rescue ActiveRecord::RecordNotSaved => e
+        flash[:error] = e.message
+        redirect_back fallback_location: order_path
+
+  end

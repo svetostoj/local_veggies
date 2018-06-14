@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LocalVeggies</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+
+</style>
+  </head>
+  <header>
+      <nav>
+        <%= link_to_unless_current 'Home', root_path %>&nbsp;|&nbsp;
+        <% unless user_signed_in? %>
+          <%= link_to_unless_current 'Register',  new_user_registration_path %>&nbsp;|&nbsp;
+          <%= link_to_unless_current 'Sing-In', new_user_session_path %>
+         
+        <% else %>
+          Welcome "<%= current_user.email %>"&nbsp;&nbsp;|&nbsp;
+          <%= link_to_unless_current 'Sign-Out', destroy_user_session_path, method: :delete %>&nbsp;|&nbsp;
+         </br>
+          <%= link_to_unless_current  'CART ' , carts_path %>
+          <%= '(' + Cart.where(buyer_id: current_user.id).count.to_s + ')' %>&nbsp;| &nbsp;
+          
+          <%= link_to_unless_current  'Orders ' , orders_path %>&nbsp;| &nbsp;
+          <%= link_to_unless_current  'OrderItems ' , order_items_path %>
+          
+        <% end %>
+
+      </nav>
+    </header>
+  <body>
+  
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+       
+    <%= yield %>
+    <footer>  - </footer>
+  </body>
+  
+</html>

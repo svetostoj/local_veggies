@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<h1>
+  <strong>Buy Product</strong>
+  </h1>
+
+ <%= image_tag @product.image_url(), width: 300, class: 'card-img-top' %>
+</br>
+</br>
+</br>
+<p>
+  <strong>SellerID:</strong>
+  <%= @product.user_id %>
+</p>
+
+<p>
+  <strong>Product type:</strong>
+  <%= @product.product_type + ' ' + @product.description %>
+</p>
+
+
+
+<p>
+  <strong>Unit weight:</strong>
+  <%= @product.unit_weight.to_s + ' ' + @product.unit %>
+</p>
+
+
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @product.unit_price %>
+</p>
+
+
+
+
+
+
+
+<%= form_with(model: @products, url: add_to_cart_product_path(@product), local: true) do |form| %>
+ 
+  <div class="field">
+  <%= form.label :qty %>
+  <%= form.text_field :qty %>
+  </div>
+  <div class="field">
+  </br>
+  </div>
+  <div class="actions">
+  <%= form.submit "  Add to CART  "%>
+  </div>
+
+<% end %>
+<%#= params %>
+
+</br>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

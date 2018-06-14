@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @order.seller_id %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @order.seller %>
+</p>
+
+<p>
+  <strong>Order date:</strong>
+  <%= @order.order_date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @order.amount %>
+</p>
+
+<p>
+  <strong>Pickup address:</strong>
+  <%= @order.pickup_address %>
+</p>
+
+<p>
+  <strong>Latitude pickup:</strong>
+  <%= @order.latitude_pickup %>
+</p>
+
+<p>
+  <strong>Longitude pickup:</strong>
+  <%= @order.longitude_pickup %>
+</p>
+
+<p>
+  <strong>Delivery address:</strong>
+  <%= @order.delivery_address %>
+</p>
+
+<p>
+  <strong>Latitude delivery:</strong>
+  <%= @order.latitude_delivery %>
+</p>
+
+<p>
+  <strong>Longitude delivery:</strong>
+  <%= @order.longitude_delivery %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @order.notes %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

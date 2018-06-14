@@ -1,0 +1,2 @@
+form_with :products, url: add_to_cart_product_path(@product)
+  f.submit 'send'

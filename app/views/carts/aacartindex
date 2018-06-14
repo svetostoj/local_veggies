@@ -1,0 +1,71 @@
+ds<p id="notice"><%= notice %></p>
+
+<h1>Carts</h1>
+<%= @carts.count %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order</th>
+      <th>Buyer</th>
+      <th>ID</th>
+      <th>Product</th>
+      <th>Seller</th>
+      <th>Unit weight</th>
+      <th>Unit</th>
+      <th>Unit price</th>
+      <th>Qty</th>
+      <th>Amount</th>
+      <th>Total weight</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carts.each do |cart| %>
+      <tr>
+        <td><%= cart.order_id %></td>
+        <td><%= cart.buyer_id %></td>
+        <td><%= cart.product_id %></td>
+        <td><%= cart.product %></td>
+        <td><%= cart.seller_id %></td>
+        <td><%= cart.unit_weight %></td>
+        <td><%= cart.unit %></td>
+        <td><%= cart.unit_price %></td>
+        <td><%= cart.qty %></td>
+        <td><%= cart.amount %></td>
+        <td><%= cart.total_weight %></td>
+        <td><%= cart.notes %></td>
+        <td><%= link_to 'Show', cart %></td>
+        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
+        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= form_with(url: add_to_order_cart_path(@carts), local: true) do |form| %>
+ 
+  <div class="field">
+  <%= form.label :amt %>
+  <%= form.text_field :amt %>
+  </div>
+  <div class="field">
+  -------------------
+  </div>
+  <div class="actions">
+  <%= form.submit "  Buy CART  "%>
+  </div>
+<% end %>
+
+<%= link_to 'New Cart', new_cart_path %>
+
+<% if user_signed_in? %>
+  <%= render 'charge_form', new_order_id: @new_order_id, user: current_user %>
+<% else %>
+    <%= link_to new_user_registration_path, class: 'stripe-button-el' do %>
+     <span style="display: block; min-height: 30px;">Pay with Card</span>
+  <% end %>
+<% end %>

@@ -1,0 +1,19 @@
+<%= form_tag add_to_order_cart_path(@carts) do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+ 
+
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-email='svetostoj@gmail.com'
+          data-description=<%= 'Pay Order' %>
+          data-currency='AUD'
+          data-amount=<%= new_order_id %>
+          data-locale="auto"></script>
+<% end %>
