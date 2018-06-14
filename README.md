@@ -2,7 +2,7 @@
 
 Deployed: [https://thawing-ravine-69982.herokuapp.com/](https://thawing-ravine-69982.herokuapp.com/)
 
-Github: [https://github.com/natalieytan/teamplayers](https://github.com/natalieytan/teamplayers)
+Github: [https://github.com/svetostoj/local_veggies](https://github.com/svetostoj/local_veggies)
 
 # Contents
 
